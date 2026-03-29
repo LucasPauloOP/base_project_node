@@ -1,11 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const connectDB = require('./config/databse'); // Importa a função que criamos
+const loadEnv = require('./utils/loadEnv.config');
+const app = express();
+const env = loadEnv();
 
-app.get('/', (req, res) => {
-  res.send('Olá Mundo!')
-})
+// Conecta ao banco de dados
+connectDB();
 
-app.listen(port, () => {
-  console.log(`Exemplo de app rodando em http://localhost:${port}`)
-})
+app.use(express.json());
+
+const PORT = env.PORT || 5000;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));

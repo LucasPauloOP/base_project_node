@@ -1,5 +1,5 @@
-config/homologation.env.js
-config/production.env.js
-config/development.env.js
+homologation.env
+production.env
+development.env
 package-lock.json
 node_modules
